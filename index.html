@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camera2PDF – Convert Phone Photos to PDF</title>
+    <meta
+      name="description"
+      content="Camera2PDF lets you convert JPG, JPEG, PNG photos from any phone camera to a single PDF in your browser. Fast, private, and mobile friendly."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-top">
+        <h1>Convert Your Camera Photos to PDF Files</h1>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="dark-icon">🌙</span>
+          <span class="light-icon">☀️</span>
+        </button>
+      </div>
+      <p class="subtitle">
+        Upload photos from your phone camera and get a PDF document in seconds. Works with photos from any phone or camera.
+      </p>
+      <p class="privacy-note">All conversions happen in your browser. Your images are not uploaded to a server.</p>
+    </header>
+
+    <div id="ad-top-banner" class="ad ad-top">
+      <!-- Insert AdSense script here -->
+      <span>Top Banner Ad Placeholder</span>
+    </div>
+
+    <main class="app-shell">
+      <section class="uploader">
+        <div class="controls">
+          <label for="file-input" class="btn primary">Add Photos</label>
+          <input type="file" id="file-input" accept="image/jpeg,image/png" multiple hidden />
+          <button id="clear-btn" class="btn ghost" type="button">Clear All</button>
+        </div>
+
+        <div id="drop-zone" class="drop-zone">
+          <p>Drag & drop images here or tap “Add Photos”.</p>
+          <small>Supported: JPG, JPEG, PNG</small>
+        </div>
+
+        <div class="settings">
+          <div class="setting setting-full">
+            <label for="pdf-name">PDF File Name</label>
+            <input type="text" id="pdf-name" placeholder="converted-photos" value="converted-photos" />
+          </div>
+          <div class="setting">
+            <label for="page-size">Page size</label>
+            <select id="page-size">
+              <option value="A4" selected>A4</option>
+              <option value="LETTER">Letter</option>
+            </select>
+          </div>
+          <div class="setting">
+            <label for="orientation">Orientation</label>
+            <select id="orientation">
+              <option value="portrait" selected>Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </div>
+          <div class="setting">
+            <label for="margin">Margins</label>
+            <select id="margin">
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="none" selected>None</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <p class="instruction-note">Upload all of your images first and then press convert</p>
+          <button id="convert-btn" class="btn accent" type="button">Convert to PDF</button>
+          <button id="preview-btn" class="btn secondary" type="button">Preview PDF</button>
+          <div id="status" class="status" aria-live="polite"></div>
+        </div>
+
+        <div id="pdf-preview-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>PDF Preview</h2>
+              <button id="close-modal" class="close-btn" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+              <iframe id="pdf-preview" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <p class="error" id="error"></p>
+
+        <p class="order-note" id="order-note" style="display: none;">
+          The numbers on each image show the order they will appear in your PDF. Use the Up/Down buttons to reorder.
+        </p>
+
+        <div id="preview-list" class="preview-list" aria-live="polite"></div>
+      </section>
+
+      <aside class="ad-column">
+        <div id="ad-side" class="ad ad-side">
+          <!-- Insert AdSense script here -->
+          <span>Sidebar Ad Placeholder</span>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div id="ad-footer" class="ad ad-footer">
+        <!-- Insert AdSense script here -->
+        <span>Footer Ad Placeholder</span>
+      </div>
+      <p>&copy; <span id="year"></span> Camera2PDF – Convert Your Photos to PDF.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
