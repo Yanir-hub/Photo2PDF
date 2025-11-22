@@ -4,4 +4,8 @@
     <loc>https://camera2pdf.com/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://camera2pdf.com/privacy.html</loc>
+    <priority>0.5</priority>
+  </url>
 </urlset>
